@@ -1,0 +1,192 @@
+/* ===================================
+   CAROUSEL STYLES - Historia Page
+   =================================== */
+
+.carousel-container {
+    margin: 40px 0;
+    position: relative;
+}
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-slides {
+    position: relative;
+}
+
+.carousel-slide {
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.carousel-image {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+}
+
+.carousel-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-text {
+    padding: 20px;
+    background: rgba(109, 40, 217, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.carousel-title {
+    font-family: 'Minecraftia', cursive;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 5px rgba(139, 92, 246, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.7) 0%, rgba(109, 40, 217, 0.7) 50%, rgba(76, 29, 149, 0.7) 100%);
+    border: none;
+    border-top: 3px solid rgba(167, 139, 250, 0.4);
+    border-left: 3px solid rgba(167, 139, 250, 0.4);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.6);
+    border-right: 3px solid rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 6px 0 0 rgba(30, 27, 75, 0.6),
+        0 6px 12px 0 rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.carousel-btn:hover {
+    background: linear-gradient(180deg, rgba(167, 139, 250, 0.9) 0%, rgba(139, 92, 246, 0.9) 50%, rgba(109, 40, 217, 0.9) 100%);
+    box-shadow:
+        0 6px 0 0 rgba(30, 27, 75, 0.8),
+        0 6px 12px 0 rgba(139, 92, 246, 0.6),
+        0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) translateY(4px);
+    box-shadow:
+        0 2px 0 0 rgba(30, 27, 75, 0.6),
+        0 2px 4px 0 rgba(139, 92, 246, 0.3);
+}
+
+.carousel-btn-prev {
+    left: 20px;
+}
+
+.carousel-btn-next {
+    right: 20px;
+}
+
+/* Carousel Indicators (Dots) */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    background: rgba(139, 92, 246, 0.3);
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background: var(--end-purple);
+    border-color: var(--ender-cyan);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+    width: 14px;
+    height: 14px;
+}
+
+.carousel-indicator:hover {
+    background: rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-btn-prev {
+        left: 10px;
+    }
+
+    .carousel-btn-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .carousel-text {
+        padding: 15px;
+    }
+
+    .carousel-title {
+        font-size: 1.2rem;
+    }
+
+    .carousel-description {
+        font-size: 1rem;
+    }
+}
