@@ -1,5 +1,5 @@
 // Copy IP to Clipboard
-const serverIP = 'youtube.com'; // Cambia esto por tu IP real
+const serverIP = 'IP SERVER'; // Cambia esto por tu IP real
 const copyBtn = document.getElementById('copyIpBtn');
 const toast = document.getElementById('toast');
 
