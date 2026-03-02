@@ -34,8 +34,8 @@ function showToast() {
 const sections = document.querySelectorAll('section');
 
 const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px'
+    threshold: 0,
+    rootMargin: '50px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -96,6 +96,7 @@ if (paymentForm) {
                         formToast.classList.add('show');
                         setTimeout(() => {
                             formToast.classList.remove('show');
+                            window.location.href = 'index.html'; // Redirigir a inicio al terminar
                         }, 4000);
                     }
                 } else {
