@@ -544,40 +544,36 @@ footer {
 }
 
 /* Toast Notification */
-.toast {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 20px 30px;
-    background: var(--primary-gradient);
-    border-radius: 50px;
-    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
-    transform: translateX(400px);
-    transition: transform 0.5s ease;
-    z-index: 1000;
-    font-weight: 600;
-}
-
-.toast.show {
-    transform: translateX(0);
-}
-
-
-/* Toast Notification Paga tu yappy */
+.toast,
 .toastYappy {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    padding: 20px 30px;
-    background: var(--primary-gradient);
-    border-radius: 50px;
-    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
-    transform: translateX(400px);
-    transition: transform 0.5s ease;
+    padding: 18px 40px;
+    background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%);
+    border-radius: 0;
+    border-top: 4px solid rgba(167, 139, 250, 0.5);
+    border-left: 4px solid rgba(167, 139, 250, 0.5);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+    border-right: 4px solid rgba(0, 0, 0, 0.8);
+    box-shadow:
+        0 8px 0 0 #1e1b4b,
+        0 8px 16px 0 rgba(139, 92, 246, 0.4);
+    transform: translateX(calc(100% + 50px));
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 1000;
     font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
+.toast.show,
 .toastYappy.show {
     transform: translateX(0);
 }

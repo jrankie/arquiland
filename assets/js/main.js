@@ -65,3 +65,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Netlify Form AJAX Submission
+const paymentForm = document.querySelector('form[name="comprobante"]');
+const formToast = document.getElementById('form-toast');
+
+if (paymentForm) {
+    paymentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const submitBtn = paymentForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Enviando...</span>';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(paymentForm);
+        // Ensure Netlify form-name is explicitly included 
+        if (!formData.has('form-name')) {
+            formData.append('form-name', paymentForm.getAttribute('name'));
+        }
+
+        fetch('/', {
+            method: 'POST',
+            body: formData
+        })
+            .then((response) => {
+                if (response.ok) {
+                    paymentForm.reset();
+                    if (formToast) {
+                        formToast.classList.add('show');
+                        setTimeout(() => {
+                            formToast.classList.remove('show');
+                        }, 4000);
+                    }
+                } else {
+                    throw new Error('Network response error');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+            })
+            .finally(() => {
+                // Restore button text and state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+    });
+}
