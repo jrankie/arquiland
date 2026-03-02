@@ -92,12 +92,12 @@ if (paymentForm) {
             .then((response) => {
                 if (response.ok) {
                     paymentForm.reset();
-                    if (formToast) {
-                        formToast.classList.add('show');
+                    const redirectOverlay = document.getElementById('redirect-overlay');
+                    if (redirectOverlay) {
+                        redirectOverlay.classList.add('active');
                         setTimeout(() => {
-                            formToast.classList.remove('show');
                             window.location.href = 'index.html'; // Redirigir a inicio al terminar
-                        }, 4000);
+                        }, 3000);
                     }
                 } else {
                     throw new Error('Network response error');
