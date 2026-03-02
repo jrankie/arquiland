@@ -411,9 +411,9 @@ section.visible {
 
 /* Content Styles for Historia and Normas */
 .content-section {
-    max-width: 900px;
+    max-width: 850px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
 .content-text {
@@ -559,6 +559,26 @@ footer {
 }
 
 .toast.show {
+    transform: translateX(0);
+}
+
+
+/* Toast Notification Paga tu yappy */
+.toastYappy {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 20px 30px;
+    background: var(--primary-gradient);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
+    transform: translateX(400px);
+    transition: transform 0.5s ease;
+    z-index: 1000;
+    font-weight: 600;
+}
+
+.toastYappy.show {
     transform: translateX(0);
 }
 
@@ -889,4 +909,74 @@ body.pagos .hero-background {
 .faq-item p {
     color: var(--text-secondary);
     margin: 0;
+}
+
+/* Payment Form Styles */
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.payment-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-form label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="tel"],
+.payment-form input[type="file"] {
+    width: 100%;
+    padding: 15px 20px;
+    background: var(--darker-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.payment-form input[type="text"]:focus,
+.payment-form input[type="tel"]:focus,
+.payment-form input[type="file"]:focus {
+    outline: none;
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    background: var(--dark-bg);
+}
+
+.payment-form input[type="file"] {
+    padding: 12px 20px;
+}
+
+.payment-form input[type="file"]::file-selector-button {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.payment-form input[type="file"]::file-selector-button:hover {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
 }

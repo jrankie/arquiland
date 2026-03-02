@@ -76,3 +76,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize
     createIndicators();
 });
+
+

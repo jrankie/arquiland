@@ -122,15 +122,53 @@
                     <ol class="instructions-list">
                         <li>Realiza el pago mediante <strong>Yappy</strong> usando el QR o el número proporcionado</li>
                         <li>Guarda el comprobante de pago que genera la aplicación</li>
+                        <li>Envía el comprobante en el grupo al formulario de abajo.</li>
+                        <li>Espera la confirmación del staff (generalmente menos de 20 minutos)</li>
+                        <li>¡Recibe tu whitelist y comienza a jugar!</li>
                         <li>Únete a nuestro servidor de <a href="https://discord.gg/JsczsnRvwN" target="_blank"
                                 style="color: #5865F2; text-decoration: underline;">Discord</a> y a nuestro grupo de
                             <a href="https://chat.whatsapp.com/JjE26zH4ro2H20kMym5hJl" target="_blank"
                                 style="color: #5865F2; text-decoration: underline;">WhatsApp</a>
                         </li>
-                        <li>Envía el comprobante en el grupo de WhatsApp</li>
-                        <li>Espera la confirmación del staff (generalmente menos de 1 hora)</li>
-                        <li>¡Recibe tu whitelist y comienza a jugar!</li>
                     </ol>
+                </div>
+
+                <!-- Formulario Netlify -->
+                <div class="payment-form-section" style="margin: 60px 0;">
+                    <h2 class="content-subtitle"> Enviar Comprobante</h2>
+                    <div class="glass-card">
+                        <p class="content-text" style="text-align: center; margin-bottom: 30px;">
+                            Completa este formulario con tu comprobante de pago para que podamos verificarlo y darte
+                            acceso.
+                        </p>
+                        <form name="comprobante" netlify enctype="multipart/form-data" class="payment-form">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="minecraft_username">Nombre de usuario de Minecraft</label>
+                                <input type="text" id="minecraft_username" name="minecraft_username"
+                                    placeholder="Tu Username de Minecraft" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Número de teléfono</label>
+                                <input type="tel" id="number" name="number"
+                                    placeholder="Tu número de teléfono (opcional)" />
+                            </div>
+                            <div class="form-group">
+                                <label for="comprobante_file">Comprobante de pago</label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="comprobante_file" name="comprobante_file"
+                                        accept="image/*,.pdf,.doc,.docx" class="file-input" required />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary"
+                                style="width: 100%; justify-content: center; margin-top: 20px;">
+                                <span>Enviar Comprobante</span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- FAQ -->
@@ -144,7 +182,7 @@
 
                     <div class="faq-item">
                         <strong>¿Cuánto tarda en activarse mi acceso?</strong>
-                        <p>Normalmente procesamos los pagos en menos de 1 hora.
+                        <p>Normalmente procesamos los pagos en menos de 20 minutos.
                         </p>
                     </div>
 
