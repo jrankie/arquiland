@@ -4,6 +4,7 @@
     src: url('../fonts/minecraftia/Minecraftia-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 * {
@@ -26,7 +27,7 @@
     --glass-bg: rgba(109, 40, 217, 0.1);
     --glass-border: rgba(139, 92, 246, 0.2);
     --text-primary: #e0e0ff;
-    --text-secondary: #a78bfa;
+    --text-secondary: #c4b5fd;
     --glow-cyan: rgba(0, 255, 255, 0.3);
     --glow-purple: rgba(139, 92, 246, 0.4);
 }
@@ -38,6 +39,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
 }
+
 
 /* Animated Background */
 .animated-background {
@@ -614,6 +616,11 @@ footer {
         align-items: center;
     }
 
+    .nav-buttons .btn-primary,
+    .nav-buttons .btn-secondary {
+        width: fit-content;
+    }
+
     .rules-list li {
         padding-left: 20px;
         padding-top: 60px;
@@ -624,6 +631,8 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
+
+
 }
 
 /* Scroll indicator */
@@ -633,6 +642,10 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
 @keyframes bounce {
@@ -646,18 +659,32 @@ footer {
     }
 
     40% {
-        transform: translateX(-50%) translateY(-20px);
+        transform: translateX(-50%) translateY(-12px);
     }
 
     60% {
-        transform: translateX(-50%) translateY(-10px);
+        transform: translateX(-50%) translateY(-6px);
     }
 }
 
 .scroll-indicator::before {
-    content: '⬇';
-    font-size: 2rem;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-right: 3px solid var(--text-secondary);
+    border-bottom: 3px solid var(--text-secondary);
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+.scroll-indicator::after {
+    content: 'SCROLL';
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
     color: var(--text-secondary);
+    opacity: 0.5;
 }
 
 /* Custom backgrounds for each page */
@@ -700,7 +727,6 @@ body.pagos .hero-background {
 .payment-option:hover {
     border-color: rgba(139, 92, 246, 0.5);
     background: rgba(139, 92, 246, 0.12);
-    transform: translateY(-5px);
 }
 
 .payment-icon {
@@ -862,7 +888,7 @@ body.pagos .hero-background {
     width: 40px;
     height: 40px;
     background: var(--secondary-gradient);
-    border-radius: 50%;
+    border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1059,4 +1085,150 @@ body.pagos .hero-background {
     to {
         transform: translateY(-25px);
     }
+}
+
+/* ========== Real-time Form Validation ========== */
+.payment-form input:invalid:not(:placeholder-shown) {
+    border-color: #f87171;
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.2);
+}
+
+.payment-form input:valid:not(:placeholder-shown) {
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* ========== IP Display Block ========== */
+.ip-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.ip-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.7;
+}
+
+.ip-address {
+    /* Minecraft bevel block */
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(180deg, #111118 0%, #0a0a12 50%, #060609 100%);
+    border-top: 4px solid rgba(139, 92, 246, 0.35);
+    border-left: 4px solid rgba(139, 92, 246, 0.35);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.9);
+    border-right: none;
+    padding: 14px 30px;
+    box-shadow:
+        0 6px 0 0 #000,
+        inset 0 0 30px rgba(0, 255, 255, 0.03);
+
+    /* Terminal text style */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--end-purple);
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 8px rgba(139, 92, 246, 0.35),
+        0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.ip-row {
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.25);
+}
+
+.ip-copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%);
+    border: none;
+    border-top: 4px solid rgba(167, 139, 250, 0.5);
+    border-right: 4px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.9);
+    border-left: 2px solid rgba(0, 0, 0, 0.4);
+    color: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 6px 0 0 #1e1b4b;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.ip-copy-btn:hover {
+    background: linear-gradient(180deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%);
+    box-shadow: 0 6px 0 0 #1e1b4b, 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+.ip-copy-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 0 #1e1b4b;
+}
+
+
+
+@keyframes blink-cursor {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ========== Hero Stats Bar ========== */
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
+.hero-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.hero-stat .stat-icon {
+    font-size: 1.1rem;
+}
+
+/* ========== Section Subtitle ========== */
+.section-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 700;
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 60px;
+    color: var(--text-secondary);
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
