@@ -1120,9 +1120,9 @@ body.pagos .hero-background {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    background: linear-gradient(180deg, #111118 0%, #0a0a12 50%, #060609 100%);
-    border-top: 4px solid rgba(139, 92, 246, 0.35);
-    border-left: 4px solid rgba(139, 92, 246, 0.35);
+    background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #000000 100%);
+    border-top: 4px solid rgba(192, 132, 252, 0.3);
+    border-left: 4px solid rgba(0, 0, 0, 0.8);
     border-bottom: 4px solid rgba(0, 0, 0, 0.9);
     border-right: none;
     padding: 14px 30px;
@@ -1153,16 +1153,15 @@ body.pagos .hero-background {
     justify-content: center;
     gap: 8px;
     padding: 14px 18px;
-    background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%);
+    background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #000000 100%);
     border: none;
-    border-top: 4px solid rgba(167, 139, 250, 0.5);
+    border-top: 4px solid  rgba(192, 132, 252, 0.3);
     border-right: 4px solid rgba(0, 0, 0, 0.8);
     border-bottom: 4px solid rgba(0, 0, 0, 0.9);
-    border-left: 2px solid rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #c084fc;
     cursor: pointer;
     transition: all 0.15s ease;
-    box-shadow: 0 6px 0 0 #1e1b4b;
+    box-shadow: 0 6px 0 0 #000000;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
     font-size: 0.95rem;
@@ -1172,7 +1171,7 @@ body.pagos .hero-background {
 }
 
 .ip-copy-btn:hover {
-    background: linear-gradient(180deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%);
+    background: linear-gradient(180deg, #262626 0%, #1a1a1a 50%, #0f0f0f 100%);
     box-shadow: 0 6px 0 0 #1e1b4b, 0 0 15px rgba(139, 92, 246, 0.4);
 }
 
